@@ -1,0 +1,53 @@
+   body {
+     width: 700px; /* Ширина текста */
+	 text-align: justify; /* Выравнивание по ширине */
+	 -moz-hyphens: auto; /* автоматическая расстановка переносов */
+     -webkit-hyphens: auto;
+     -ms-hyphens: auto;
+    }
+    h1 {
+	 text-align: center;
+     text-indent: 30px; 
+     letter-spacing: 10px; /* Расстояние между буквами */
+     font-family: Arial; /* Шрифт */
+     font-size: 30px;
+     margin: 0px 10px 0px 15px; 
+    }
+	
+    h3 {
+	 text-align: center;
+     line-height: 0.5;
+     text-decoration: underline; /* Подчеркивание */
+     font-style: italic; /* Курсив */
+     text-indent: 45px;
+    }
+	
+    p {
+     text-indent: 40px;
+     /* Создание отступов между абзацами */
+	 /*margin-top: 3em; /* Отступ сверху */
+     /*margin-bottom: 3em; /* Отступ снизу */
+     }
+     
+    p.first { 
+     text-indent: 0px /* Отступ перед строкой */
+    }
+    .text p:first-child:first-letter /* Задаем параметры первой буквы в начале главы */
+    {
+     margin: -10px 10px 10px 30px; /* Внешний отступ на 4-х сторонах */
+     font-family: Arial;
+     font-size: 65px;
+     float: left;
+    }
+
+    .fourth {
+		font-style: italic;
+        column-width: 48%;
+        column-count: 2;
+        column-gap: 4%;
+        column-rule: solid 1px black;
+    }
+	
+
+
+  
