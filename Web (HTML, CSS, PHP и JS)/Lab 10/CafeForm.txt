@@ -1,0 +1,36 @@
+﻿<form id="form1" method="get">
+	<table cellspacing="0" cellpadding="6" border="0">
+		<tr>
+			<th class="stR"><label for="food_name">Название блюда</label></th>
+			<td><input id="food_name" name="food_name" size=25 maxlength=18 placeholder="Введите название блюда" pattern="[А-Яа-яЁё]" required></td>
+		</tr>
+		<tr>
+			<th class="stR"><label for="product_name">Наименование продукта</label></th>
+			<td>
+                        <select name="product_name[]">
+                        <option>Мидии</option>
+                        <option>Лук</option>
+                        <option>Сыр</option>
+                        <option>Яйцо куриное</option>
+                        <option>Кальмары</option>
+                        </select>
+                        </td>
+		</tr>
+		<tr>
+			<th class="stR">Единицы измерения</th>
+			<td><input type="radio" id="measur" name="measure" value="Г" checked>
+				<label for="measur">Граммы</label>
+				<input type="radio" id="measur1" name="measure" value="Ш">
+				<label for="measur1">Штуки</label>
+			</td>
+		</tr>
+		<tr>
+			<th class="stR"><label for="amount">Количество</label></th>
+			<td><input type="number" id="amount" name="amount" size=4 maxlength=4 placeholder="9999" required></td>
+		</tr>
+		<tr>
+			<th class="stR"><input type="button" value="Записать данные" onclick="validateForm()"></th>
+			<td><input type="reset" value="Очистить поля формы"></td>
+		</tr>
+	</table>
+</form>

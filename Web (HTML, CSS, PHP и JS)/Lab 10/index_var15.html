@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="windows-1251">
+<title>Задание 10</title>
+<link rel="stylesheet" href="style_var15.css" type="text/css">
+<script>
+// определяем тип запроса
+var XMLHttpRequestObject=false;
+if ( window.XMLHttpRequest ) 
+	XMLHttpRequestObject=new XMLHttpRequest(); 
+else if ( window.ActiveXObject ) {
+	XMLHttpRequestObject=new ActiveXObject("Microsoft.XMLHTTP");}
+
+// Вставка кусков текста в HTML документ
+function getDate(file,id){
+	if ( XMLHttpRequestObject ) {
+		var obj=document.getElementById(id);
+		XMLHttpRequestObject.open("GET",file,false);
+	
+		XMLHttpRequestObject.onreadystatechange= function() {
+			if ( XMLHttpRequestObject.readyState==4 && XMLHttpRequestObject.status==200 ) {
+				obj.innerHTML=XMLHttpRequestObject.responseText;
+			} 
+		}
+		XMLHttpRequestObject.send(null);
+	}
+}
+// Проверка данных, веденных в поля формы
+function validateForm( ) {
+	p=document.getElementById("food_name").value;
+	if ( p.search("[а-яА-ЯёЁ]") ) {
+		alert ( "Название блюда должно состоять из букв русского алфавита!");
+		return;
+	}
+	var p=Number.parseInt(document.getElementById("amount").value);
+	if ( isNaN(p) | (p<1) | (p>9000) ) {
+		alert ("Количество должно быть целым числом из диапазона от 1 до 9000 включительно!");
+		return;
+	}
+	alert("Данные из формы отправлены на сервер!");
+}
+</script>
+</head>
+<body>
+<form id="form0">
+	<input class="button1" type="button" onclick="getDate('CafeTable.txt','t');" value="Показать таблицу">
+	<input class="button1" type="button" onclick="getDate('CafeForm.txt','t');" value="Показать форму">
+</form>
+<br>
+<div id="t"><h3>Нажмите на кнопку, чтобы совершить действие</h3></div>
+</body>
+</html>

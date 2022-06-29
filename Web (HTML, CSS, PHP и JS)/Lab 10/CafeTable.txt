@@ -1,0 +1,13 @@
+﻿<table cellspacing="0" cellpadding="8" border="1">
+	<caption>Рецепты блюд</caption>
+	<tbody style="text-align:center">
+		<tr><th>Название блюда</th><th class="st">Наименование продукта</th><th>Единицы измерения</th><th>Количество</th></tr>
+		<tr><td>Жульен с мидиями</td><td class="stL">Мидии</td><td>граммы</td><td>340</td></tr>
+		<tr><td>Жульен с мидиями</td><td class="stL">Лук</td><td>граммы</td><td>80</td></tr>
+		<tr><td>Жульен с мидиями</td><td class="stL">Сыр</td><td>граммы</td><td>100</td></tr>
+		<tr><td>Жульен с мидиями</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>1</td></tr>
+                <tr><td>Салат с кальмарами</td><td class="stL">Кальмары</td><td>граммы</td><td>300</td></tr>
+                <tr><td>Салат с кальмарами</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>3</td></tr>
+                <tr><td>Салат с кальмарами</td><td class="stL">Лук</td><td>граммы</td><td>100</td></tr>
+	</tbody>
+</table>
