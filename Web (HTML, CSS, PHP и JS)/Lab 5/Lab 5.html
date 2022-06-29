@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Задание 5</title>
+<link rel="stylesheet" href="lab5.css" type="text/css">
+<script>
+function f() { 
+	var c0=document.getElementById("food_name");
+	var c1=document.getElementById("product_name")
+	var t=document.getElementsByTagName("table")[0];
+	var r=t.getElementsByTagName("tr");
+	for (var j=1;j<r.length;j++) { // Пробегаем по всем строкам таблицы (пропустив заголовок)
+		var d=r[j].getElementsByTagName("td");
+	    if (c0.value==d[0].innerHTML && c1.value==d[1].innerHTML){
+			alert("Запись с названием блюда \""+c0.value+"\" и наименованием продукта \""+c1.value+"\" уже существует!");
+			return false;
+		}
+	}
+	r=t.insertRow(); // Добавляем строку
+	d=document.createElement('td'); //Создаем ячейку
+	d.innerHTML=c0.value; //Заполняем ячейку
+    r.appendChild(d); // Вставляем ячейку в строку
+
+	d=document.createElement('td');
+	d.style.textAlign="left";
+	d.innerHTML=document.getElementById("product_name").value;
+    r.appendChild(d);
+
+	d=document.createElement('td');
+	d.innerHTML=document.getElementById("measure").value;
+    r.appendChild(d);
+
+	d=document.createElement('td');
+	d.innerHTML=document.getElementById("amount").value;
+    r.appendChild(d);
+    alert('Запись была успешно добавлена!');
+	return true;
+}
+</script>
+</head>
+<body>
+<table cellspacing="0" cellpadding="8" border="1">
+	<caption>Рецепты блюд</caption>
+	<tbody class="stC">
+	<tr><th>Название блюда</th><th>Наименование продукта</th><th>Единицы измерения</th><th>Количество</th></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Мидии</td><td>граммы</td><td>340</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Лук</td><td>граммы</td><td>80</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Сыр</td><td>граммы</td><td>100</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>1</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Кальмары</td><td>граммы</td><td>300</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>3</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Лук</td><td>граммы</td><td>100</td></tr>
+	</tbody>
+</table>
+<br>
+<form>
+	<table cellspacing="0" cellpadding="3" border="0">
+        <caption>Форма для добавления записи</caption>
+		<tbody class="stR">
+		<tr><th><label for="food_name">Название блюда</label></th>
+			<td class="stL"><input type="text" id="food_name" size=15 maxlength=18 pattern="[A-Za-zА-Яа-яЁё]" required></td></tr>
+		<tr><th><label for="product_name">Наименование продукта</label></th>
+			<td class="stL"><input type="text" id="product_name" size=15 maxlength=18 pattern="[A-Za-zА-Яа-яЁё]" required></td></tr>
+		<tr><th><label for="measure">Единицы измерения</label></th>
+			<td class="stL"><input type="text" id="measure" size=4 maxlength=6 pattern="[A-Za-zА-Яа-яЁё]" required></td></tr>
+			<tr><th><label for="amount">Количество</label></th>
+			<td class="stL"><input id="amount" size=6 min="1" max="999999999" pattern="\d[1-999999999]" required></td></tr>	
+		<tr><td><input type="button" value="Добавить новую запись" onclick="f()"></td>
+			<td class="stC"><input type="reset" value="Очистить поля формы"></td></tr>	
+		</tbody>	
+	</table>
+</form>
+</body>
+</html>
