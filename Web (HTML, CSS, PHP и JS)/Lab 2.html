@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Задание 2</title>
+        <meta charset="utf-8">
+        <style>
+			body {outline:1px solid; width:550px;}
+            .var {font-weight:bold; font-size:x-large; line-height:2;}
+            .var15 {text-align:right; vertical-align:top;}
+            .var152 {text-align:center; vertical-align:top;}
+        </style>
+    </head>
+    <body>
+        <form oninput="x.value=square.value">
+            <table cellspacing="0" cellpadding="4" border="0">
+				<caption class="var">Помещения</caption>
+                <tr>
+                    <td class="var15">1.&nbsp;&nbsp;&nbsp;№ помещения</td>
+                    <td><input type="number" name="building" min="1" max="999" pattern="\d[1-999]" step="1"></td>
+                </tr>
+                <tr>
+                    <td class="var15">2.&nbsp;&nbsp;&nbsp;Месторасположение</td>
+                    <td>
+                        <input type="text" name="location" size="30" maxlength="50" placeholder="Москва, Большой Факельный пер., д.38В" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="var15">3.&nbsp;&nbsp;&nbsp;Площадь(кв.м)</td>
+                    <td>
+                        <input type="range" name="square" id="square" min="10" max="400" step="1" value="1">
+						<output name="x" for="square">10</output>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="var15">4.&nbsp;&nbsp;&nbsp;Количество месяцев аренды</td>
+                    <td>
+                        <input type="number" name="month" name="mon" min="1" max="99" pattern="\d[1-99]" placeholder="99" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="var15">5.&nbsp;&nbsp;&nbsp;Стоимость аренды(в мес.)</td>
+                    <td>
+                        <input type="number" name="price" name="pri" min="1" max="99999" pattern="\d[1-99999]" placeholder="99999" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="var15">6.&nbsp;&nbsp;&nbsp;Контактное лицо</td>
+                    <td>
+                        <select name="n_human">
+                            <option>Иванов И.И.</option>
+                            <option>Петров П.П.</option>
+                            <option>Сидорова С.С.</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="var152">
+                        &nbsp;&nbsp;&nbsp;<input type="submit" value="Отправить">
+                    </td>
+                    <td class="var152">
+                        &nbsp;&nbsp;&nbsp;<input type="reset" value="Отменить">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
