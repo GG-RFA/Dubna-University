@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Задание 4</title>
+<script src="table_var15.js"></script>
+<style>
+table, td, th { border: 1px solid #000; border-collapse: collapse; }
+td, th {	padding: 2px 15px 2px 15px; text-align:center;}
+</style>
+<script>
+function f() {
+	var c=document.getElementById("food_name");
+	var x=document.getElementById("product_name");
+	var t=document.getElementsByTagName("table")[0];
+	var r=t.getElementsByTagName("tr");
+	for (var j=1; j < r.length; j++) { // Пробегаем по всем строкам таблицы
+		d=r[j].getElementsByTagName("td");
+		if (c.value==d[0].innerHTML && x.value==d[1].innerHTML){
+        t.deleteRow(j);
+		alert('Запись была успешно удалена');
+			return true;
+		}
+	}
+alert("Запись с такими значениями полей не найдена!");
+return false;
+}
+</script>
+</head>
+<body>
+<table>
+<script>
+	var b=a.split(';');
+	document.write("<caption>"+b[0]+"</caption>");
+	document.write("<tr><th>"+b[1]+"</th><th>"+b[2]+"</th><th>"+b[3]+"</th><th>"+b[4]+"</th></tr>");
+	for (var i=8;i<b.length;) {
+document.write("<tr><td align='"+b[5]+"'>"+b[i++]+
+"</td><td align='"+b[6]+"'>"+b[i++]+"</td><td align='"+b[7]+"'>"+b[i++]+"</td><td align='"+b[8]+"'>"+b[i++]+"</td></tr>");
+	}
+</script>
+</table>
+<br>
+<form>
+	<label for="food_name">Название блюда</label>
+	<input id="food_name" size=6 waxwidth=6><br>
+	<label for="product_name">Наименование продукта</label>
+	<input id="product_name" size=6 waxwidth=6><br>
+	<input type="button" value="Удалить запись" onclick="f()">
+	<button onclick="window.location.reload();">Очистить поля формы</button>
+</form>
+</body>
+</html>
+
