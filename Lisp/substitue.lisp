@@ -1,5 +1,0 @@
-(defun substitue (List old new)
-  (cond ((null List) nil)
-        ((equal (car List) old) (cons new (substitue (cdr List) old new)))
-        ((listp (car List)) (cons (substitue (car List) old new) (substitue (cdr List) old new)))
-        (t (cons (car List) (substitue (cdr List) old new)))))
