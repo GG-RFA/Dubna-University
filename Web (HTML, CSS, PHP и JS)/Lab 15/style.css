@@ -1,0 +1,93 @@
+   body {
+     width: 700px; /* Ширина текста */
+	 text-align: justify; /* Выравнивание по ширине */
+	 -moz-hyphens: auto; /* автоматическая расстановка переносов */
+     -webkit-hyphens: auto;
+     -ms-hyphens: auto;
+	 border: 30px solid #B8860B; /* IE */
+     min-height: 100px;
+     padding: 10px;
+	 /*background-image: url(images/old.jpg); */
+     border-image: url(images/border.png) 35 34 35 35 repeat; /* CSS3 */
+    }
+
+	@font-face{
+		 font-family: Apostol TYGRA;
+		 src: url("fonts/Apostol TYGRA.ttf");
+		 font-style: normal;
+	     font-weight: normal;
+	 }
+	 
+    h1 {
+	font-family: Apostol TYGRA; /* Шрифт */
+	 color: #B8860B;
+	 text-align: center;
+	 text-indent: 30px; 
+     letter-spacing: 10px; /* Расстояние между буквами */
+     font-size: 70px;
+     margin: 0px 10px 0px 15px; 
+	 
+    }
+	
+	h2 {
+	 font-family: Apostol TYGRA; /* Шрифт */
+	 color: #B8860B;
+	 text-align: center;
+     text-indent: 30px; 
+     letter-spacing: 10px; /* Расстояние между буквами */
+     font-size: 30px;
+     margin: 0px 10px 0px 15px; 
+	}
+	
+	
+    h3 {
+	 font-family: Apostol TYGRA;
+	 color: #B8860B;
+	 text-align: center;
+     line-height: 0.5;
+     text-indent: 45px;
+    }
+	
+	 @font-face{
+		 font-family: "Triodion Caps kUcs";
+		 src: url("fonts/Triodion Caps kUcs.ttf");
+		 font-style: normal;
+	     font-weight: normal;
+	 }
+	 
+    p {
+	 font-family: "Triodion Caps kUcs";
+     text-indent: 40px;
+
+     }
+
+     .page {
+        font-family: "Triodion Caps kUcs";
+        text-align: justify;
+        font-size: 20pt;
+        margin: 5% 10% 0 0;
+     }
+     
+    p.first { 
+     text-indent: 0px /* Отступ перед строкой */
+    }
+    .text p:first-child:first-letter /* Задаем параметры первой буквы в начале главы */
+    {
+	 font-family: "Akathistos Caps ieUcs";
+	 color: #B8860B;
+     margin: -10px 10px 10px 30px; /* Внешний отступ на 4-х сторонах */
+     font-size: 65px;
+     float: left;
+    }
+
+    .fourth {
+		font-family: "Akathistos Caps ieUcs";
+        column-width: 48%;
+        column-count: 2;
+        column-gap: 4%;
+        column-rule: solid 1px black;
+    }
+	
+
+
+  
