@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<title>Задание 3</title>
+<meta charset="utf-8">
+<style>
+table, td {
+	border: 1px solid #454545;
+	border-collapse: collapse;
+}
+td {
+	padding: 2px 15px 2px 15px;
+	text-align:center;
+	
+}
+</style>
+<script>
+	var a=Array("Жульен с мидиями","Мидии","граммы",340,
+	            "Жульен с мидиями","Лук","граммы",80,
+				"Жульен с мидиями","Сыр", "граммы",100,
+				"Жульен с мидиями","Яйцо куриное", "штуки",1,
+				"Салат с кальмарами","Кальмары","граммы",300,
+				"Салат с кальмарами","Яйцо куриное","штуки",3,
+				"Салат с кальмарами","Лук","граммы",100);
+	function q(a,b) {
+		if (a.amount<b.amount) return -1;
+		if (a.amount>b.amount) return +1;
+		if (a.product_name<b.product_name) return -1;
+		if (a.product_name>b.product_name) return +1;
+		return 0;
+	}
+	function recept(food_name,product_name,measure,amount) {
+		this.food_name=food_name;
+		this.product_name=product_name;
+		this.measure=measure;
+        this.amount=amount;
+	}
+	function f() {
+		var b=[];
+		j=0;
+		for (var i=0;i<a.length;i+=4)
+			b[j++]=new recept(a[i],a[i+1],a[i+2],a[i+3]);
+		b.sort(q);
+		var t=document.getElementsByTagName("table")[0];
+		var r=t.getElementsByTagName("tr");
+		for (var j=0;j<b.length;j++) {
+			var c=r[j+1].getElementsByTagName("td");
+			with (b[j]) {
+                c[0].innerHTML=food_name;
+				c[1].innerHTML=product_name;
+                c[2].innerHTML=measure;
+                c[3].innerHTML=amount;
+            }
+        }
+}
+</script>
+</head>
+<body>
+<table>
+<caption>Рецепты блюд</caption>
+<tr><td>Название блюд</td><td>Наименование продукта</td><td>Единицы измерения</td><td>Количество</td></td>
+<script>
+	for (var i=0;i<a.length;i+=4)
+		document.write("<tr><td>"+a[i]+"</td><td style='text-align:left'>"
+		+a[i+1]+"</td><td>"+a[i+2]+"</td><td>"+a[i+3]+"</td></tr>");
+</script>
+</table>
+<br>
+<form>
+	<input type="button" value="Отсортировать по наименованию продуктов и их количеству"
+	onclick="f()">
+    <button onclick="window.location.reload();">Сбросить</button>
+</form>
+</body>
+</html>
