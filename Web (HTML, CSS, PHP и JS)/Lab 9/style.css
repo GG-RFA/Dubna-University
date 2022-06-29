@@ -1,0 +1,28 @@
+table { border-collapse: collapse; border:1px solid black;}
+caption, th, h3 {font-family:cursive; font-size:11pt; font-weight:600;}
+td {font-family:arial; font-size:10pt;}
+.stL {text-align:left;}
+.stR {text-align:right;}
+.stC {text-align:center;}
+.button1 {
+  position: relative;
+  display: inline-block;
+  width: 14em;
+  height: 2.5em;
+  line-height: 2.5em;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #777;
+  color: #fff;
+  outline: none;
+  border: 2px solid #F64C2B;
+  border-radius: 5pt;
+  box-shadow: 0 0 0 14em rgba(0,0,0,0) inset, .1em .1em .2em #800;
+  background: linear-gradient(#FB9575, #F45A38 48%, #EA1502 52%, #F02F17);
+}
+.button1:active {
+  top: .1em;
+  left: .1em;
+  box-shadow: 0 0 0 14em rgba(0,0,0,.05) inset;
+}
