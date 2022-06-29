@@ -1,0 +1,48 @@
+
+    body {
+        width: 600px;
+        height: 400px;
+        overflow: hidden;
+        margin-top: 100px;
+        margin-left: 200px;
+		    background-size: 100%;
+    
+    }
+    div {
+        width: 1280px;
+        height: 1281px;
+		    position: relative;
+		    background: url(cat.jpg) no-repeat;
+        animation: tumbleweed 5s linear 3s infinite alternate;
+        background-size: 100%;
+    }
+    
+    @keyframes tumbleweed /* правило для управления промежуточными шагами в последовательности анимации */
+	
+    {
+      0% {
+        transform:  translate(0px,45px)  rotate(0deg) ;
+      }
+      9% {
+        transform:  translate(90px,5px)  rotate(130deg) ;
+      }
+      17% {
+        transform:  translate(160px,45px)  rotate(250deg) ;
+      }
+      26% {
+        transform:  translate(270px,15px)  rotate(360deg) ;
+      }
+      34% {
+        transform:  translate(360px,45px)  rotate(490deg) ;
+      }
+      42% {
+        transform:  translate(480px,30px)  rotate(600deg) ;
+      }
+      50% {
+        transform:  translate(601px,45px)  rotate(720deg) ;
+      }
+      100% {
+        transform:  translate(601px,45px)  rotate(720deg) ;
+      }
+     
+    }
