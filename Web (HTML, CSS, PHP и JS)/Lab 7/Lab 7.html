@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Задание 7</title>
+<link rel="stylesheet" href="lab7.css" type="text/css">
+<script>
+var rowCount; // номер выбранной строки таблицы
+function f1() { // Создание новой записи
+	var c0=document.getElementById("food_name");	// значение названия блюда
+	var c1=document.getElementById("product_name")  //значение наименования продукта
+	var t=document.getElementById("tbl"); 		// это ссылка на таблицу рецептов блюд
+	var r=t.getElementsByTagName("tr");			// это ссылка на массив строк в таблице
+	for (var i=1;i<r.length;i++) { 				// пробегаем по всем строкам таблицы (пропустив заголовок)
+		let d=r[i].getElementsByTagName("td"); 	// это ссылка на первую ячейку
+		if ((c0.value==d[0].innerHTML && c1.value==d[1].innerHTML)){ // сравнение содержимого ячейки с названием блюда и наименованием продукта
+			alert("Запись с названием блюда \""+c0.value+"\" и наименованием продукта \""+c1.value+"\" уже существует!");
+			return;
+		}
+	}
+	t=t.getElementsByTagName("tbody")[0];
+	r=document.createElement('tr');				// создание новой строки
+	var d=[];
+	for (var i=0;i<4;i++) {
+		d[i] = document.createElement('td');	// создание ячеек
+		r.appendChild(d[i]);					// включение ячеек в строку
+	}
+	d[1].style="text-align:left"; 				// Наименование продукта прижимаем влево
+	t.appendChild(r);							// включение строки в таблицу
+	alert('Запись была успешно добавлена!');
+		
+	// 	заполнение ячеек значениями полей из формы
+	d[0].innerHTML=document.getElementById("food_name").value;
+    d[1].innerHTML=document.getElementById("product_name").value;
+    d[2].innerHTML=document.getElementById("measure").value;
+    d[3].innerHTML=document.getElementById("amount").value;
+}
+function f2() { // изменение выбранной записи
+	let c0 = document.getElementById("food_name");
+	let c1 = document.getElementById("product_name");
+	let t = document.getElementById("tbl");
+	let r = t.getElementsByTagName("tr");
+	for (let i= 1; i<r.length; i++) { // Пробегаем по всем строкам таблицы (пропустив заголовок)
+		let d = r[i].getElementsByTagName("td");
+		if ((c0.value == d[0].innerHTML) && (c1.value == d[1].innerHTML) && (i != rowCount)){
+			alert("Запись с названием блюда \""+c0.value+"\" и наименованием продукта \""+c1.value+"\" уже существует!");
+			return;
+		}
+	}
+	let d = r[rowCount].getElementsByTagName("td");
+	d[0].innerHTML = document.getElementById("food_name").value;
+	d[1].innerHTML = document.getElementById("product_name").value;
+	d[2].innerHTML = document.getElementById("measure").value;
+	d[3].innerHTML = document.getElementById("amount").value;
+	alert('Запись была успешно изменена!');
+}	
+function f3() { // удаление выбранной записи
+	var c=document.getElementById("food_name");
+	var x=document.getElementById("product_name");
+	var t=document.getElementsByTagName("table")[0];
+	var r=t.getElementsByTagName("tr");
+	for (var j=1; j < r.length; j++) { // Пробегаем по всем строкам таблицы
+		d=r[j].getElementsByTagName("td");
+		if (c.value==d[0].innerHTML && x.value==d[1].innerHTML){
+        t.deleteRow(j);
+		alert('Запись была успешно удалена');
+			return true;
+		}
+	}
+alert("Запись с такими значениями полей не найдена!");
+return false;
+}
+</script>
+</head>
+<body>
+<table id="tbl" cellspacing="0" cellpadding="8" border="1">
+	<caption>Рецепты блюд</caption>
+	<tbody style="text-align:center">
+	<tr><th>Название блюда</th><th>Наименование продукта</th><th>Единицы измерения</th><th>Количество</th></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Мидии</td><td>граммы</td><td>340</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Лук</td><td>граммы</td><td>80</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Сыр</td><td>граммы</td><td>100</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>1</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Кальмары</td><td>граммы</td><td>300</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>3</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Лук</td><td>граммы</td><td>100</td></tr>
+	</tbody>
+</table>
+<br>
+<form id="form1" method="get">
+	<table cellspacing="0" cellpadding="4" border="0">
+		<caption>Форма для cоздания, изменения и удаления записи</caption>
+		<tr><th class="stR"><label for="food_name">Название блюда</label></th>
+			<td><input type="text" id="food_name" name="food_name" size=15 maxlength=18 pattern="[A-Za-zА-Яа-яЁё]" required></td></tr>
+		<tr><th class="stR"><label for="product_name">Наименование продукта</label></th>
+			<td><input type="text" id="product_name" name="product_name" size=15 maxlength=18 pattern="[A-Za-zА-Яа-яЁё]" required></td></tr>
+		<tr><th class="stR"><label for="measure">Единицы измерения</label></th>
+			<td><input type="text" id="measure" name="measure" size=4 maxlength=6 pattern="[A-Za-zА-Яа-яЁё]"></td></tr>
+		<tr><th class="stR"><label for="amount">Количество</label></th>
+			<td><input id="amount" name="amount" size=6 min="1" max="999999999" pattern="\d[1-999999999]"></td></tr>
+		<tr><th class="stR"><input type="button" value="Создать новую запись" onclick="f1()"></th>
+			<td><input type="button" value="Изменить выбранную запись" onclick="f2()"></td></tr>
+		<tr><th class="stR"><input type="reset" value="Очистить поля формы"></th>
+			<td><input type="button" value="Удалить выбранную запись" onclick="f3()"></td></tr>	
+	</table>
+</form>
+<script>
+var tbl1=document.getElementById("tbl");
+tbl1.addEventListener("click", (e)=>{			// Обработка события "e" - клик мышки на таблице
+	let cell = e.target;						// Свойства
+	let t = cell.parentElement;					// Где произошло 
+	let r = t.parentElement.children;			// Выбираем массив строк
+	for (rowCount = 1; rowCount < r.length; rowCount++) {
+		if (r[rowCount] === t) {				// Идентичность объектов
+			d=r[rowCount].getElementsByTagName("td");
+			document.getElementById("food_name").value=d[0].innerHTML;
+			document.getElementById("product_name").value=d[1].innerHTML;
+			document.getElementById("measure").value=d[2].innerHTML;
+			document.getElementById("amount").value = d[3].innerHTML;
+			return;
+		}
+	}
+	rowCount=-1;
+});
+</script>
+</body>
+</html>
