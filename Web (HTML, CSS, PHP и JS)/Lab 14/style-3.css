@@ -1,0 +1,81 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+body {
+	background: #A9A9A9;
+}
+
+.wrap {
+	
+	margin: 50px auto;
+	width: 500px;
+	height: 200px;
+	padding: 30px;
+	/*background-image: url(images/arkham.jpg); */
+	background: rgb(255, 255, 255);
+	
+	-webkit-box-shadow: 0px 0px 30px 0px rgba(50, 50, 50, 1);
+	-moz-box-shadow:    0px 0px 30px 0px rgba(50, 50, 50, 1);
+	box-shadow:         0px 0px 30px 0px rgba(50, 50, 50, 1);
+	
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.wrap img {
+	vertical-align: middle;
+	width: 150px;
+}
+
+.wrap hr {
+	margin-top: 20px;
+}
+
+.company_description {
+	color: Crimson;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 900;
+	font-family: 'Сomic Sans MS';
+}
+.company_description_rotate {
+	color: Indigo;
+	font-family: 'Mistral';
+	text-align: center;
+	font-size: 32px;
+	font-weight: 800;
+	font-style: italic;
+	
+	position: relative;
+	margin: -100px -25px 70px 100px;
+}
+
+.main_info {
+	margin-top: 20px;
+}
+
+.site {
+	color: LightSalmon;
+	font-family: 'Courier New';
+	font-weight: 900;
+	font-size: 15px;
+}
+
+.info {
+	float: right;
+}
+
+.sized {
+	font-size: 18px;
+}
+
+.contact_info {
+	color: DarkGreen;
+	text-align: center;
+	font-family: 'Monotype Corsiva';
+	font-size: 25px;
+	margin: 0px 0px 10px 0px;
+}
