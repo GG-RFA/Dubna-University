@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Задание 6</title>
+<link rel="stylesheet" href="lab6.css" type="text/css">
+<script>
+var rowCount = -1;
+function f() { 
+	let c0 = document.getElementById("food_name");
+	let c1 = document.getElementById("product_name");
+	let t = document.getElementById("tbl");
+	let r = t.getElementsByTagName("tr");
+	for (let i= 1; i<r.length; i++) { // Пробегаем по всем строкам таблицы (пропустив заголовок)
+		let d = r[i].getElementsByTagName("td");
+		if ((c0.value == d[0].innerHTML) && (c1.value == d[1].innerHTML) && (i != rowCount)){
+			alert("Запись с названием блюда \""+c0.value+"\" и наименованием продукта \""+c1.value+"\" уже существует!");
+			return;
+		}
+	}
+	let d = r[rowCount].getElementsByTagName("td");
+	d[0].innerHTML = document.getElementById("food_name").value;
+	d[1].innerHTML = document.getElementById("product_name").value;
+	d[2].innerHTML = document.getElementById("measure").value;
+	d[3].innerHTML = document.getElementById("amount").value;
+	alert('Запись была успешно изменена!');
+}
+</script>
+</head>
+<body>
+<table id="tbl" cellspacing="0" cellpadding="8" border="1">
+	<caption>Рецепты блюд</caption>
+	<tbody class="stC">
+	<tr><th>Название блюда</th><th>Наименование продукта</th><th>Единицы измерения</th><th>Количество</th></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Мидии</td><td>граммы</td><td>340</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Лук</td><td>граммы</td><td>80</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Сыр</td><td>граммы</td><td>100</td></tr>
+	<tr><td>Жульен с мидиями</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>1</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Кальмары</td><td>граммы</td><td>300</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Яйцо куриное</td><td>штуки</td><td>3</td></tr>
+	<tr><td>Салат с кальмарами</td><td class="stL">Лук</td><td>граммы</td><td>100</td></tr>
+	</tbody>
+</table>
+<br>
+<form method="GET">
+	<table cellspacing="0" cellpadding="6" border="0">
+		<caption>Форма для изменения записи</caption>
+		<tbody class="stL">
+		<tr><td class="stR"><label for="food_name">Название блюда</label></td>
+			<td><input type="text" id="food_name" size=15 maxlength=18 pattern="[A-Za-zА-Яа-яЁё]" required></td></tr>
+		<tr><td class="stR"><label for="product_name">Наименование продукта</label></td>
+			<td><input type="text" id="product_name" size=15 maxlength=18 pattern="[A-Za-zА-Яа-яЁё]" required></td></tr>
+		<tr><td class="stR"><label for="measure">Единицы измерения</label></td>
+			<td><input type="text" id="measure" size=4 maxlength=6 pattern="[A-Za-zА-Яа-яЁё]"></td></tr>
+		<tr><td class="stR"><label for="amount">Количество</label></td>
+			<td><input id="amount" size=6 min="1" max="999999999" pattern="\d[1-999999999]"></td></tr>	
+		<tr><td class="stR"><input type="button" value="Изменить выбранную запись" onclick="f()"></td>
+			<td><input type="reset" value="Очистить поля формы"></td></tr>
+		</tbody>	
+	</table>
+</form>
+<script>
+var qq=document.getElementById("tbl");
+qq.addEventListener("click", (e)=>{		// Обработка события "e" - клик мышки на таблице
+	let cell = e.target;				// Свойства
+	let t = cell.parentElement;			// Где произошло 
+	let r = t.parentElement.children;	// Выбираем массив строк
+	for (rowCount = 1; rowCount < r.length; rowCount++) {
+		if (r[rowCount] === t) {		// Идентичность объектов
+			let d = r[rowCount].getElementsByTagName("td");
+			document.getElementById("food_name").value = d[0].innerHTML;
+			document.getElementById("product_name").value = d[1].innerHTML;
+			document.getElementById("measure").value = d[2].innerHTML;
+			document.getElementById("amount").value = d[3].innerHTML;
+			return;
+		}
+	}
+	rowCount = -1;
+});
+</script>
+</body>
+</html>
