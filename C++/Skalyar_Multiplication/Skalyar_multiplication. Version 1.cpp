@@ -1,4 +1,4 @@
-﻿#include<iostream>
+#include<iostream>
 #include<math.h>
 #include<vector>
 #include<cstdlib>
@@ -7,7 +7,7 @@ class Vectors {
 public:
 	double a, b;
 	void show() {
-		cout« "x:" « a« "\t"« "y:" « b« endl;
+		cout << "x:" << a << "\t"<< "y:" << b << endl;
 	}
 	Vectors(double x, double y) {
 		a = x;
@@ -84,12 +84,12 @@ int main()
 	F = A ^ B;
 	D = !A;
 	C.show();
-	cout « "D равно:" « D « "\n";
-	cout « "F равно:" « F « "\n";
-	cout« "Скалярное произведение равно:" « A.Skalyar_proizv(B, A)«"\n";
-	cout« "Модуль вектора равен: "« A.Modul_vector(B)« "\n";
-	cout« "Косинус равен:" « A.CosAlpha(B, A)« "\n";
-	cout« "Сумма векторов равна: ";
+	cout << "D равно:" << D << "\n";
+	cout << "F равно:" << F << "\n";
+	cout << "Скалярное произведение равно:" << A.Skalyar_proizv(B, A)<<"\n";
+	cout << "Модуль вектора равен: "<< A.Modul_vector(B)<< "\n";
+	cout << "Косинус равен:" << A.CosAlpha(B, A)<< "\n";
+	cout << "Сумма векторов равна: ";
 	A.Summa(B);
 	A.show();
 	system("pause");
