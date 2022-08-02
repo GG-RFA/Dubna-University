@@ -18,10 +18,10 @@ public:
         return num < a.num || (num == a.num && manufacturer < a.manufacturer);
     }
 
-    friend std::ostream& operator<< (std::ostream&, const Auto_Detail&);
+    friend ostream& operator<< (ostream&, const Auto_Detail&);
 };
 
-std::ostream& operator<< (std::ostream& out, const Auto_Detail& a)
+ostream& operator<< (ostream& out, const Auto_Detail& a)
 {
     out << "Автозапчасти('" << a.num << "', " << a.name_details << ", '" << a.manufacturer << "', '" << a.price << "')\n";
     return out;
@@ -38,27 +38,27 @@ int main()
 
     };
     // вывод на экран данных вектора "Auto_Details1"
-    for (auto& a : Auto_Details1) std::cout << a; std::cout << '\n';
+    for (auto& a : Auto_Details1) cout << a; cout << '\n';
 
     // Второй способ создания и заполнения вектора после его создании 
     vector<Auto_Detail> Auto_Details2;
     Auto_Details2.insert(Auto_Details2.end(), Auto_Detail("21083-1003011 ", "Головка блока в сборе", "АО «АвтоВАЗ»", 16580));
     Auto_Details2.insert(Auto_Details2.end(), Auto_Detail("406-1006262 ", "Фланец промежуточного вала", "ОАО «ГАЗ» ", 175));
     Auto_Details2.insert(Auto_Details2.end(), Auto_Detail("21140-3711010-00", "Фара правая", "ЗАО «АВТОСВЕТ»", 1700));
-    for (auto& a : Auto_Details2) std::cout << a; std::cout << '\n';
+    for (auto& a : Auto_Details2) std::cout << a; cout << '\n';
 
     vector<Auto_Detail> Auto_Details;
     // Копирование данных вектора "Auto_Details1" в вектор "Auto_Details"
     Auto_Details = Auto_Details1;
-    for (auto& a : Auto_Details) std::cout << a; std::cout << '\n';
+    for (auto& a : Auto_Details) std::cout << a; cout << '\n';
 
     // Копирование данных вектора "Auto_Details2" в конец вектора "Auto_Details"
     copy(Auto_Details2.begin(), Auto_Details2.end(), back_inserter(Auto_Details));
-    for (auto& a : Auto_Details) std::cout << a; std::cout << '\n';
+    for (auto& a : Auto_Details) std::cout << a; cout << '\n';
 
     // Сортировка вектора "Auto_Details"
     sort(Auto_Details.begin(), Auto_Details.end());
-    for (auto& a : Auto_Details) std::cout << a; std::cout << '\n';
+    for (auto& a : Auto_Details) std::cout << a; cout << '\n';
     Auto_Details1.clear();
     if (Auto_Details.empty()) std::cout << "вектор пустой\n";
     Auto_Details2.clear();
