@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Задание 1</title>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="300"
+style="background-color:#eee; border:1px solid #ccc;">
+</canvas>
+<script>
+var Xmax=0,Ymax=0;
+var canvas = document.getElementById("myCanvas"),
+context = canvas.getContext("2d");
+var Pyr =[[5,7],[14,5],[3,2],[10,12]];
+var par =[[4,9],[16,12],[13,8],[16,16]];
+par = par.concat(SearchPoints(par));
+SearchMax(Pyr.concat(par));
+ShowPyre(Pyr,context,"red");
+for(let i=0;i<par.length;i++)
+{
+console.log("x="+par[i][0] + " y="+par[i][1]);
+}
+Showpar(par,context,"blue");
+function SearchMax(figures)
+{
+console.log("Ищем Максимальный Х");
+console.log("Ищем Максимальный Y");
+for(let i=0;i<figures.length;i++)
+{
+   if(figures[i][0]>Xmax){
+       Xmax=figures[i][0];
+    }
+      if(figures[i][1]>Ymax){
+          Ymax=figures[i][1];
+       }
+}
+}
+
+function ShowPyre(figure,context,color)
+{
+   var xKoef = Math.trunc(400/Xmax); //Коэффициент по Х
+   var yKoef = Math.trunc(300/Ymax); //Коэффициент по Y
+   console.log(xKoef);
+   console.log(yKoef);
+   context.beginPath();
+   context.moveTo(figure[0][0]*xKoef, 300-figure[0][1]*yKoef);
+   context.lineTo(figure[1][0]*xKoef, 300-figure[1][1]*yKoef);
+   context.lineTo(figure[2][0]*xKoef, 300-figure[2][1]*yKoef);
+   context.lineTo(figure[0][0]*xKoef, 300-figure[0][1]*yKoef);
+
+   context.lineTo(figure[3][0]*xKoef, 300-figure[3][1]*yKoef);
+   context.lineTo(figure[1][0]*xKoef, 300-figure[1][1]*yKoef);
+   context.lineTo(figure[0][0]*xKoef, 300-figure[0][1]*yKoef);
+   context.moveTo(figure[3][0]*xKoef, 300-figure[3][1]*yKoef);
+   context.lineTo(figure[2][0]*xKoef, 300-figure[2][1]*yKoef);
+   context.closePath();
+   context.strokeStyle = color;
+   context.stroke();
+}
+function Showpar(figure,context,color)
+{
+  var xKoef = Math.trunc(400/Xmax); //Коэффициент по Х
+  var yKoef = Math.trunc(300/Ymax); //коэффициент по Y
+  console.log(xKoef);
+  console.log(yKoef);
+  context.beginPath();
+  context.moveTo(figure[0][0]*xKoef, 300-figure[0][1]*yKoef);
+  context.lineTo(figure[1][0]*xKoef, 300-figure[1][1]*yKoef);
+  context.lineTo(figure[2][0]*xKoef, 300-figure[2][1]*yKoef);
+  context.lineTo(figure[4][0]*xKoef, 300-figure[4][1]*yKoef);
+  context.lineTo(figure[7][0]*xKoef, 300-figure[7][1]*yKoef);
+  context.lineTo(figure[6][0]*xKoef, 300-figure[6][1]*yKoef);
+  context.lineTo(figure[0][0]*xKoef, 300-figure[0][1]*yKoef);
+  context.lineTo(figure[6][0]*xKoef, 300-figure[6][1]*yKoef);
+  context.lineTo(figure[3][0]*xKoef, 300-figure[3][1]*yKoef);
+  context.lineTo(figure[1][0]*xKoef, 300-figure[1][1]*yKoef);
+  context.lineTo(figure[3][0]*xKoef, 300-figure[3][1]*yKoef);
+  context.lineTo(figure[5][0]*xKoef, 300-figure[5][1]*yKoef);
+  context.lineTo(figure[2][0]*xKoef, 300-figure[2][1]*yKoef);
+  context.lineTo(figure[5][0]*xKoef, 300-figure[5][1]*yKoef);
+  context.lineTo(figure[7][0]*xKoef, 300-figure[7][1]*yKoef);
+  context.lineTo(figure[4][0]*xKoef, 300-figure[4][1]*yKoef);
+  context.lineTo(figure[0][0]*xKoef, 300-figure[0][1]*yKoef);
+  context.closePath();
+  context.strokeStyle = color;
+  context.stroke();
+}
+function SearchPoints(par)
+{
+   var points = new Array(4);
+   for (var i = 0; i < points.length; i++)
+  {
+   points[i] = new Array(2);
+  }
+   points[0][0]=par[0][0]+par[2][0]- par[1][0];
+   points[0][1]=par[0][1]+par[2][1]- par[1][1];
+   points[1][0]=par[2][0]+par[3][0] - par[1][0];
+   points[1][1]=par[2][1]+par[3][1] - par[1][1];
+   points[2][0]=par[0][0]+par[3][0] - par[1][0];
+ 
+   points[2][1]=par[0][1]+par[3][1]- par[1][1];
+   points[3][0]=points[1][0]+points[2][0] - par[3][0];
+   points[3][1]=points[1][1]+points[2][1] - par[3][1];
+   return points;
+}
+</script>
+</body>
+</html>

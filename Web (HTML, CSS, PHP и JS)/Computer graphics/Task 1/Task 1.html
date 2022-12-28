@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Задание 1</title>
+		<meta charset='utf-8' />
+	</head>
+	<body>
+		<canvas id='example'>Обновите браузер</canvas>
+<script>
+	var example = document.getElementById("example"),
+	ctx     = example.getContext('2d');
+	example.height = 400;
+	example.width  = 400;
+	var a= 400;
+	ctx.strokeStyle = "red";
+	var x = [5,14,3,10,4,16,13,16]; 
+	var y = [7,5,2,12,9,12,8,16];
+	for (var i = 0; i < x.length; i++) {
+      x[i]*=20;
+	  y[i]*=20;
+    }
+ctx.beginPath();
+ctx.moveTo(x[0], a-y[0]); 
+ctx.lineTo(x[1], a-y[1]);
+ctx.lineTo(x[2], a-y[2]);
+ctx.lineTo(x[3], a-y[3]);
+ctx.lineTo(x[0], a-y[0]);
+ctx.moveTo(x[3], a-y[3]);
+ctx.lineTo(x[1], a-y[1]);
+ctx.moveTo(x[0], a-y[0]);
+ctx.lineTo(x[2], a-y[2]);
+ctx.stroke();
+var shx=Math.floor(x[5]-x[6]);//F-G
+var shy=Math.floor(y[5]-y[6]);
+
+var hgx=Math.floor(x[7]-x[5]);//H-F
+var hgy=Math.floor(y[7]-y[5]);
+
+var lnx=Math.floor(x[4]-x[5]);//E-F
+var lny=Math.floor(x[4]-y[5]);
+
+ctx.strokeStyle = "blue";
+ctx.beginPath();
+ctx.moveTo(x[4], a-y[4]); //E
+ctx.lineTo(x[5], a-y[5]);//F
+ctx.lineTo(x[7], a-y[7]);//H
+ctx.lineTo(x[5], a-y[5]);//F
+ctx.lineTo(x[6], a-y[6]);//G
+ctx.lineTo(x[6]-hgx, a-y[6]-hgy);
+ctx.lineTo(x[7], a-y[7]);//H
+ctx.lineTo(x[4]-hgx, a-y[4]-hgy);
+ctx.lineTo(x[4], a-y[4]);//E
+ctx.lineTo(x[4]-shx, a-y[4]+shy);
+ctx.lineTo(x[6], a-y[6]);//G
+ctx.moveTo(x[4]-shx, a-y[4]+shy);
+ctx.lineTo(x[4]-shx-hgx, a-y[4]+shy-hgy);
+ctx.lineTo(x[4]-hgx, a-y[4]-hgy);
+ctx.moveTo(x[4]-shx-hgx, a-y[4]+shy-hgy);
+ctx.lineTo(x[6]-hgx, a-y[6]-hgy);
+ctx.stroke();
+		</script>
+	</body>
+</html>
