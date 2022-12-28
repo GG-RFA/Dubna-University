@@ -1,0 +1,4 @@
+[0328/181141.001:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[0328/183146.083:ERROR:file_io.cc(90)] ReadExactly: expected 36, observed 0
+[0328/190141.014:ERROR:file_io.cc(135)] WriteFile: Идет закрытие канала. (0xE8)
+[0331/093401.405:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
